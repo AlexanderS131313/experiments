@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ICOLand</title>
+
+
+
+
+  <link href="dist/hamburgers.css" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .logo {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(to right,
+          #3bf695,
+          #276ecb);
+
+      -webkit-mask-image: url("logo/pngwing.com.png");
+      mask-image: url("logo/pngwing.com.png");
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      mask-position: center;
+    }
+
+    /* .bg-space{ 
+        background-image: url(img/andy-holmes-rCbdp8VCYhQ-unsplash.jpg)
+        ;
+        background-size: cover;
+        background-position: center;
+        background-blend-mode: overlay;
+        position: relative;
+            z-index: 10;
+            background-color: rgba(0, 0, 0, 0.5); */
+
+
+    /* .custom-shadow {
+        box-shadow: 0 4px 6px rgba(255, 255, 255, 0.5);
+      } */
+
+    /* .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background-color: #3B82F6;
+            transform: translateX(-50%);
+        }
+        .timeline-point {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: #3B82F6;
+            border-radius: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .timeline-line {
+            position: absolute;
+            width: 20px;
+            height: 2px;
+            background-color: #3B82F6;
+        } */
+    .bg-custom {
+      background-image: url('Space-img/galaxy-3608029_1920.jpg');
+      background-size: cover;
+      /* Ensures the image covers the entire width */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      min-height: 100vh;
+      /* Ensures the container stretches to at least the full height of the viewport */
+      position: relative;
+      z-index: 0;
+    }
+
+    .bg-custom::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      /* Black overlay with 50% opacity */
+      z-index: -1;
+    }
+  </style>
+</head>
+
+<body class="bg-custom bg-gray-900 text-white p-4">
+
+
+
+
+  <!-- Navbar -->
+
+  <nav class="bg-transparent relative w-full top-0 z-10 flex justify-between items-center p-4">
+    <div class="flex items-center space-x-4">
+      <button class="md:hidden flex items-center px-3 py-2 border rounded text-white border-white hover:bg-gray-700"
+        onclick="toggleMenu()">
+        <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <title>Menu</title>
+          <path d="M0 3h20v2H0V3zm0 5h20v2H0V8zm0 5h20v2H0v-2z" />
+        </svg>
+      </button>
+      <div class="logo"></div>
+      <span class="ml-3 text-xl font-semibold">ICOLand</span>
+    </div>
+    <div class="hidden md:flex space-x-8">
+      <a href="#" class="hover:text-blue-400">About</a>
+      <a href="#" class="hover:text-blue-400">Features</a>
+      <a href="#" class="hover:text-blue-400">Benefit</a>
+      <a href="#" class="hover:text-blue-400">Roadmap</a>
+      <a href="#" class="hover:text-blue-400">Team</a>
+      <a href="#" class="hover:text-blue-400">Blog</a>
+      <a href="#" class="hover:text-blue-400">FAQs</a>
+      <a href="#" class="hover:text-blue-400">Contact</a>
+      <a href="#" class="hover:text-blue-400">Page</a>
+    </div>
+    <div class="hidden md:flex items-center space-x-2">
+      <!-- <button class="border border-blue-700 rounded-xl px-6 py-2 hover:bg-blue-500 hover:text-white">EN</button> -->
+      <button
+        class="bg-gradient-to-br from-green-500 via-blue-400 to-purple-900 hover:from-purple-500 hover:to-green-500 text-white rounded-xl px-4 py-2">Login</button>
+    </div>
+  </nav>
+  <div id="mobile-menu"
+    class="hidden md:hidden absolute  bg-gray-800 bg-opacity-50 rounded-xl w-36 left-0 top-20 text-center">
+    <a href="#" class="block px-4 py-2 text-sm hover:text-blue-400">About</a>
+    <a href="#" class="block px-4 py-2 text-sm hover:text-blue-400">Features</a>
+    <a href="#" class="block px-4 py-2 text-sm hover:text-blue-400">Benefit</a>
+    <a href="#" class="block px-4 py-2 text-sm hover:text-blue-400">Roadmap</a>
+    <a href="#" class="block px-4 py-2 text-sm hover:text-blue-400">Team</a>
+    <a href="#" class="block px-4 py-2 text-sm hover:text-blue-400">Blog</a>
+    <a href="#" class="block px-4 py-2 text-sm hover:text-blue-400">FAQs</a>
+    <a href="#" class="block px-4 py-2 text-sm hover:text-blue-400">Contact</a>
+    <a href="#" class="block px-4 py-2 text-sm hover:text-blue-400">Page</a>
+    <div class="flex flex-col items-center space-y-2 mt-4">
+      <!-- <button class="border border-blue-700 rounded-xl px-6 py-2 hover:bg-blue-500 hover:text-white">EN</button> -->
+      <button class=" hover:bg-gray-500 hover:bg-opacity-50  text-white rounded-xl px-4 py-2">Login</button>
+    </div>
+  </div>
+
+  <!-- Основная Section -->
+
+
+
+  <header class="hero-bg text-center py-20 flex flex-col justify-center items-center min-h-screen p-4">
+    <div class="container text-center p-4">
+      <h1 class="text-4xl md:text-6xl font-bold p-4">
+        Join The Future Of ICOLand Crypto
+        <p class="p-4">Trading Strategies</p>
+      </h1>
+      <p class="">
+        IcoCoin is a public blockchain protocol deploying a suite of
+        algorithmic decentralized stablecoins
+      </p>
+      <p>
+        which underpin a thriving ecosystem that brings DeFi to the masses.
+      </p>
+
+      <button
+        class="btn-3d mt-6 bg-gradient-to-br from-green-500 from-20% via-blue-400 via-30% to-purple-900 text-white font-sans text-xl rounded-xl px-4 py-2 hover:scale-[1.2]  p-4">
+        BUY TOKEN NOW
+      </button>
+    </div>
+  </header>
+
+  <!-- Countdown Section -->
+
+  <section class="text-center bg-blue-900 bg-opacity-25 p-4 rounded-lg max-w-6xl mx-auto ">
+
+    <div class="container max-w-6xl mx-auto p-8 flex flex-col md:flex-row justify-between items-center">
+      <div class="text-left mb-4 md:mb-0">
+        <p class="text-3xl font-semibold text-white">
+          50.000.000 HVR To Be Sold!
+        </p>
+        <p class="mt-2 text-lg text-gray-300">
+          During Pre-Sale, get 5x tokens or 50.000 HVR per Ether. During
+          regular sale, it will be 10.000 HVR per Ether.
+        </p>
+      </div>
+      <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+        <div
+          class="text-center hover:scale-105 transform transition-transform p-4 bg-gradient-to-br from-green-500 from-20% via-blue-400 via-30% to-purple-900 rounded-lg shadow-lg w-24 h-24 flex flex-col justify-center">
+          <p class="text-2xl font-bold text-white">200</p>
+          <p class="mt-1 text-sm text-white opacity-75">Days</p>
+        </div>
+        <div
+          class="text-center hover:scale-105 transform transition-transform p-4 bg-gradient-to-br from-green-500 from-20% via-blue-400 via-30% to-purple-900 rounded-lg shadow-lg w-24 h-24 flex flex-col justify-center">
+          <p class="text-2xl font-bold text-white">16</p>
+          <p class="mt-1 text-sm text-white opacity-75">Hours</p>
+        </div>
+        <div
+          class="text-center hover:scale-105 transform transition-transform p-4 bg-gradient-to-br from-green-500 from-20% via-blue-400 via-30% to-purple-900 rounded-lg shadow-lg w-24 h-24 flex flex-col justify-center">
+          <p class="text-2xl font-bold text-white">24</p>
+          <p class="mt-1 text-sm text-white opacity-75">Minutes</p>
+        </div>
+        <div
+          class="text-center hover:scale-105 transform transition-transform p-4 bg-gradient-to-br from-green-500 from-20% via-blue-400 via-30% to-purple-900 rounded-lg shadow-lg w-24 h-24 flex flex-col justify-center">
+          <p class="text-2xl font-bold text-white">32</p>
+          <p class="mt-1 text-sm text-white opacity-75">Seconds</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Другие секций  -->
+
+  <section class="text-center py-12 p-4">
+    <div class="container mx-auto p-4">
+      <h2 class="text-3xl font-bold mb-8">What Is ICO Crypto-Currencies?</h2>
+      <p class="text-xs text-center font-sans opacity-75">
+        The world first platform to reward investors and traders build on ICO
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 p-4">
+
+        <!-- secure storage card  -->
+
+        <div class="text-center border-2 border-transparent hover:border-blue-700 transition duration-700">
+          <img src="logo/cloud-computing.png" alt="Secure Storage"
+            class="mx-auto mb-4 w-20 h-20 p-4 hover:scale-110 transform transition-transform" />
+          <h3 class="text-xl font-semibold p-4">Secure Storage</h3>
+          <p class="p-4">
+            The platform helps investors to make easy to purchase and sell
+            their tokens.
+          </p>
+        </div>
+
+
+
+        <div class="text-center border-2 border-transparent hover:border-blue-700 transition duration-700">
+
+          <img src="logo/financial-planning.png" alt="Investment Projects"
+            class="mx-auto mb-4 w-20 h-20 p-4 hover:scale-110 transform transition-transform   " />
+          <h3 class="text-xl font-semibold p-4">Investment Projects</h3>
+          <p class="p-4">
+            The platform helps investors to make easy to purchase and sell
+            their tokens.
+          </p>
+        </div>
+
+
+        <div class="text-center border-2 border-transparent hover:border-blue-700 transition duration-700">
+          <img src="logo/free-icon-money-bag-7106727.png" alt="Credit Card Use"
+            class="mx-auto mb-4 w-20 h-20 p-4 hover:scale-110  transform transition-transform" />
+          <h3 class="text-xl font-semibold p-4">Credit Card Use</h3>
+          <p class="p-4">
+            The platform helps investors to make easy to purchase and sell
+            their tokens.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why choose our Token? Section -->
+
+  <section class="text-center py-16 bg-transparent">
+    <div class="container mx-auto p-4">
+      <h2 class="text-3xl font-bold mb-4 text-white">
+        Why choose our Token?
+      </h2>
+      <p class="text-gray-300 mb-12">
+        The world first platform to reward investors and traders build on ICO.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 p-4 max-w-6xl mx-auto">
+        <!-- Card 1 -->
+        <div
+          class="card p-10 bg-gray-700 bg-opacity-40 rounded-lg  transition transform duration-500 hover:bg-gray-900 hover:scale-105 border-2 border-transparent hover:border-green-600  transition duration-700 ">
+          <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div class="bg-gray-900 rounded-full">
+              <img src="logo/cloud-computing.png" alt="Secure Storage" class="w-14 h-14" />
+            </div>
+          </div>
+          <div class="pt-2">
+            <h3 class="text-xl font-semibold text-white mb-2">
+              Reliable, Tamper-Proof Network
+            </h3>
+            <p class="text-gray-300 opacity-75 text-center mb-6">
+              Use decentralization, trusted nodes, premium data, and
+              cryptographic proofs to connect highly accurate and available
+              data/APIs to any smart contract.
+            </p>
+            <div class="flex justify-center">
+              <a href="#" class="text-white hover:underline pt-12">See Details &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+
+        <div
+          class="card p-10 bg-gray-700 bg-opacity-40 rounded-lg  transition transform duration-500 hover:bg-gray-900 hover:scale-105 border-2 border-transparent hover:border-green-600  transition duration-700 ">
+          <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div class="bg-gray-900 rounded-full">
+              <img src="logo/free-icon-sd-card-5658263.png" alt="Secure Storage" class="w-14 h-14" />
+            </div>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2">
+            Seamless Connection To Any API
+          </h3>
+          <p class="text-gray-300 opacity-75 text-center mb-6">
+            Build on a flexible framework that we can retrieve data from any
+            API, connect with existing systems, and integrate with any current
+            or future blockchain.
+          </p>
+          <a href="#" class="text-white hover:underline pt-12">See Details &rarr;</a>
+        </div>
+
+
+        <!-- Card 3 -->
+
+        <div
+          class="card p-10 bg-gray-700 bg-opacity-40 rounded-lg  transition transform duration-500 hover:bg-gray-900 hover:scale-105 border-2 border-transparent hover:border-green-600  transition duration-700">
+          <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div class="bg-gray-900 rounded-full">
+              <img src="logo/free-icon-light-bulb-8458197.png" alt="Secure Storage" class="w-14 h-14" />
+            </div>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2">
+            Proven, Ready-Made Solutions
+          </h3>
+          <p class="text-gray-300 opacity-75 text-center mb-12">
+            Integrate pre-built, time-tested oracle solutions that already
+            secure tens of billions in smart contract value for market-leading
+            decentralized applications.
+          </p>
+          <a href="#" class="text-white hover:underline mt-4">See Details &rarr;</a>
+        </div>
+
+
+        <!-- Card 4 -->
+
+
+        <div
+          class="card p-10 bg-gray-700 bg-opacity-40 rounded-lg  transition transform duration-500 hover:bg-gray-900 hover:scale-105 border-2 border-transparent hover:border-green-600  transition duration-700 ">
+          <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+
+
+            <div class="bg-gray-900 rounded-full w-14 h-14 flex items-center justify-center">
+              <img src="logo/free-icon-procedure-7392881.png" alt="Secure Storage" class="w-14 h-14 " />
+            </div>
+
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2">
+            Secure Off-Chain Computation
+          </h3>
+          <p class="text-gray-300  text-center mb-12">
+            Use a decentralized network of ICOland Keeper nodes to automate
+            contracts, mitigating risk of manual interventions, and a bunch of
+            centralized servers.
+          </p>
+          <a href="#" class="text-white hover:underline">See Details &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Roadmap -->
+
+
+
+  <section class="text-center py-20 p-4 bg-space ">
+    <div class="container mx-auto p-4">
+      <h1 class="text-3xl font-bold mb-8">Roadmap</h1>
+      <p class="">The use of crypto-currencies has become more widespread and they are now
+      <p>
+        increasingly accepted as a legitimate for transactions
+      </p>
+      </p>
+
+    </div>
+    <div class="container mx-auto py-12 relative">
+
+
+
+      <!-- Вертикальная линия -->
+
+      <div class="absolute inset-x-0 top-0 bottom-40 flex items-center justify-center overflow-hidden ">
+        <div class="h-full w-1 bg-gray-700 "></div>
+      </div>
+
+
+      <!-- Часть 1 -->
+      <div class="mb-12 flex justify-between items-center w-full">
+        <div class="order-1 w-5/12 px-2 py-4 flex justify-end">
+
+          <div
+            class="bg-gray-900 w-2/3 p-4 rounded-lg bg-opacity-50 transition transform duration-500 hover:scale-105 border-2 border-transparent hover:border-green-700 transition duration-300 ">
+            <h2 class="mb-1 text-xs text-gray-00 font-bold">APRIL 15, 2019</h2>
+            <p class="text-sm leading-snug tracking-wide ">Concept</p>
+            <ul class="list-disc list-inside mt-2">
+              <li>Concept Generation</li>
+              <li>Team Assemble</li>
+            </ul>
+          </div>
+        </div>
+        <div class="order-1 relative flex items-center justify-center">
+
+
+          <!-- Точка -->
+
+          <div
+            class="w-8 h-8 rounded-full bg-gray-700 border-4 border-gray-500 z-10 transform transition-transform hover:scale-110 hover:bg-green-500">
+          </div>
+
+
+          <!-- Черточка -->
+
+          <div class="absolute w-20 h-1 bg-gray-700  top-1/2 transform -translate-y-1/2 right-full"></div>
+        </div>
+        <div class="order-1 w-5/12"></div>
+      </div>
+
+
+      <!-- Часть  2 -->
+
+
+      <div class="mb-12 flex justify-between items-center w-full">
+        <div class="order-1 w-5/12"></div>
+        <div class="order-1 relative flex items-center justify-center">
+
+          <!-- Точка -->
+
+          <div
+            class="w-8 h-8 rounded-full bg-gray-700 border-4 border-gray-500 z-10 transform transition-transform hover:scale-110 hover:bg-green-500">
+          </div>
+
+          <!-- Черточка -->
+
+
+          <div class="absolute w-20 h-1 bg-gray-700 top-1/2 transform -translate-y-1/2 left-full"></div>
+        </div>
+        <div class="order-1 w-5/12 px-2 py-4 flex justify-start">
+          <div
+            class="bg-gray-900 w-2/3 p-4 rounded-lg bg-opacity-50 transition transform duration-500 hover:scale-105 border-2 border-transparent hover:border-green-700 transition duration-300 ">
+            <h2 class="mb-1 text-xs text-gray-00 font-bold">APRIL 15, 2019</h2>
+            <p class="text-sm leading-snug tracking-wide ">Concept</p>
+            <ul class="list-disc list-inside mt-2">
+              <li>Concept Generation</li>
+              <li>Team Assemble</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Часть  3 -->
+
+      <div class="mb-12 flex justify-between items-center w-full">
+        <div class="order-1 w-5/12 px-2 py-4 flex justify-end">
+          <div
+            class="bg-gray-900 w-2/3 p-4 rounded-lg bg-opacity-50 transition transform duration-500 hover:scale-105 border-2 border-transparent hover:border-green-700 transition duration-300 ">
+            <h2 class="mb-1 text-xs text-gray-00 font-bold">APRIL 15, 2019</h2>
+            <p class="text-sm leading-snug tracking-wide ">Concept</p>
+            <ul class="list-disc list-inside mt-2">
+              <li>Concept Generation</li>
+              <li>Team Assemble</li>
+            </ul>
+          </div>
+        </div>
+        <div class="order-1 relative flex items-center justify-center">
+
+          <!-- Точка -->
+
+          <div
+            class="w-8 h-8 rounded-full bg-gray-700 border-4 border-gray-500 z-10 transform transition-transform hover:scale-110 hover:bg-green-500">
+          </div>
+
+          <!-- Черточка -->
+
+
+          <div class="absolute w-20 h-1 bg-gray-700 top-1/2 transform -translate-y-1/2 right-full"></div>
+        </div>
+        <div class="order-1 w-5/12"></div>
+      </div>
+
+      <!-- Часть 4 -->
+
+
+      <div class="mb-12 flex justify-between items-center w-full">
+        <div class="order-1 w-5/12"></div>
+        <div class="order-1 relative flex items-center justify-center">
+
+          <!-- Точка -->
+
+          <div
+            class="w-8 h-8 rounded-full bg-gray-700 border-4 border-gray-500 z-10 transform transition-transform hover:scale-110 hover:bg-green-500">
+          </div>
+
+          <!-- Черточка -->
+
+
+          <div class="absolute w-20 h-1 bg-gray-700 top-1/2 transform -translate-y-1/2 left-full"></div>
+        </div>
+        <div class="order-1 w-5/12 px-2 py-4 flex justify-start">
+          <div
+            class="bg-gray-900 w-2/3 p-4 rounded-lg bg-opacity-50 transition transform duration-500 hover:scale-105 border-2 border-transparent hover:border-green-700 transition duration-300 ">
+            <h2 class="mb-1 text-xs text-gray-00 font-bold">APRIL 15, 2019</h2>
+            <p class="text-sm leading-snug tracking-wide ">Concept</p>
+            <ul class="list-disc list-inside mt-2">
+              <li>Concept Generation</li>
+              <li>Team Assemble</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Секция график-пирог)  -->
+
+  <div class="container mx-auto p-6">
+    <div class="text-center mb-8">
+      <h1 class="text-3xl font-bold">Token Allocation & Funds Distribution</h1>
+      <p>Join the industry leaders to discuss where the markets are heading. We accept token payments.</p>
+    </div>
+
+    <div class="flex flex-col md:flex-row justify-center items-center gap-8">
+
+      <!-- Distribution Section -->
+
+      <div
+        class="bg-gray-800 bg-opacity-60 p-6 rounded-lg max-w-sm w-full transition transform duration-500 hover:scale-105 border-2 border-transparent hover:border-blue-700 transition duration-300">
+        <h2 class="text-3xl font-semibold mb-6 text-center">Distribution</h2>
+        <div class="flex justify-center mb-4">
+          <img id="main-image" src="logo/968cb93a1be3d33a9cfb7e577ffb78dc.png" alt="Distribution Chart"
+            class="w-50 h-45 transition-transform duration-300">
+        </div>
+        <ul>
+          <li class="flex justify-between mb-2">
+            <span class="flex items-center">
+              <span id="reserve-fund"
+                class="color-circle bg-blue-500 h-4 w-4 inline-block mr-2 rounded-full transition-transform duration-300 hover:scale-150"></span>
+              Reserve Fund
+            </span>
+            <span>40%</span>
+          </li>
+          <li class="flex justify-between mb-2">
+            <span class="flex items-center">
+              <span id="team-advisor"
+                class="color-circle bg-green-500 h-4 w-4 inline-block mr-2 rounded-full transition-transform duration-300 hover:scale-150"></span>
+              Team & Advisor
+            </span>
+            <span>30%</span>
+          </li>
+          <li class="flex justify-between mb-2">
+            <span class="flex items-center">
+              <span id="presale-token"
+                class="color-circle bg-yellow-500 h-4 w-4 inline-block mr-2 rounded-full transition-transform duration-300 hover:scale-150"></span>
+              Presale Token
+            </span>
+            <span>10%</span>
+          </li>
+          <li class="flex justify-between mb-2">
+            <span class="flex items-center">
+              <span id="bounty-program-red"
+                class="color-circle bg-red-500 h-4 w-4 inline-block mr-2 rounded-full transition-transform duration-300 hover:scale-150"></span>
+              Bounty Program
+            </span>
+            <span>10%</span>
+          </li>
+          <li class="flex justify-between mb-4">
+            <span class="flex items-center">
+              <span id="bounty-program-purple"
+                class="color-circle bg-purple-500 h-4 w-4 inline-block mr-2 rounded-full transition-transform duration-300 hover:scale-150"></span>
+              Bounty Program
+            </span>
+            <span>10%</span>
+          </li>
+        </ul>
+      </div>
+
+
+      <!-- Funding Allocation Section -->
+
+
+      <div
+        class="bg-gray-800 bg-opacity-60 p-6 rounded-lg  max-w-sm w-full transition transform duration-500 hover:scale-105 border-2 border-transparent hover:border-blue-700 transition duration-300 ">
+        <h2 class="text-3xl font-semibold mb-6 text-center">Funding Allocation</h2>
+        <div class="flex justify-center mb-4">
+          <img src="logo/968cb93a1be3d33a9cfb7e577ffb78dc.png" alt="Funding Allocation Chart" class="w-50 h-45">
+        </div>
+        <ul>
+          <li class="flex justify-between mb-2">
+            <span class="flex items-center">
+              <span class="bg-blue-500 h-4 w-4 inline-block mr-2 rounded-full"></span> Product Development
+            </span>
+            <span>40%</span>
+          </li>
+          <li class="flex justify-between mb-2">
+            <span class="flex items-center">
+              <span class="bg-green-500 h-4 w-4 inline-block mr-2 rounded-full"></span> Marketing
+            </span>
+            <span>30%</span>
+          </li>
+          <li class="flex justify-between mb-2">
+            <span class="flex items-center">
+              <span class="bg-yellow-500 h-4 w-4 inline-block mr-2 rounded-full"></span> Business Development
+            </span>
+            <span>10%</span>
+          </li>
+          <li class="flex justify-between mb-2">
+            <span class="flex items-center">
+              <span class="bg-red-500 h-4 w-4 inline-block mr-2 rounded-full"></span> Legal & Regulation
+            </span>
+            <span>10%</span>
+          </li>
+          <li class="flex justify-between mb-2">
+            <span class="flex items-center">
+              <span class="bg-purple-500 h-4 w-4 inline-block mr-2 rounded-full"></span> Operational
+            </span>
+            <span>10%</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- Our team  -->
+
+  <section class="max-w-screen-xl mx-auto p-10 text-center">
+    <h2 class="text-4xl font-bold mb-4">Our Team</h2>
+    <p class="text-l mb-8">With help from our teams, contributors and investors these are the milestones we are looking
+      forward to achieve.</p>
+
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="mx-auto ">
+        <div class="relative w-48 h-48 mx-auto">
+          <img src="img2/pexels-yankrukov-4458419.jpg" alt="Ralph Edwards"
+            class="rounded-full w-full h-full object-cover transition transform duration-500 hover:scale-105 border-2 border-transparent hover:border-green-700 transition duration-300 ">
+        </div>
+        <h3 class="text-xl font-bold mt-4">Emily Johnson</h3>
+        <p class="text-sm text-gray-400">Sr. Backend Developer</p>
+        <div class="flex justify-center mt-2 space-x-2">
+          <a href="#" class="text-blue-500 text-xl transform transition duration-300 hover:scale-125"><i
+              class="fab fa-linkedin"></i></a>
+          <a href="#" class="text-blue-500 text-xl transform transition duration-300 hover:scale-125"><i
+              class="fab fa-facebook"></i></a>
+          <a href="#" class="text-pink-500 text-xl transform transition duration-300 hover:scale-125"><i
+              class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+
+
+      <div class="mx-auto">
+        <div class="relative w-48 h-48 mx-auto">
+          <img src="img2/pexels-cottonbro-6195663.jpg" alt="Ralph Edwards"
+            class="rounded-full w-full h-full object-cover transition transform duration-500 hover:scale-105 border-2 border-transparent hover:border-yellow-700  transition duration-300 ">
+        </div>
+        <h3 class="text-xl font-bold mt-4">Sophia Brown</h3>
+        <p class="text-sm text-gray-400"> Frontend Developer</p>
+        <div class="flex justify-center mt-2 space-x-2">
+          <a href="#" class="text-blue-500 text-xl transform transition duration-300 hover:scale-125"><i
+              class="fab fa-linkedin"></i></a>
+          <a href="#" class="text-blue-500 text-xl transform transition duration-300 hover:scale-125"><i
+              class="fab fa-facebook"></i></a>
+          <a href="#" class="text-pink-500 text-xl transform transition duration-300 hover:scale-125"><i
+              class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+
+
+
+      <div class="mx-auto">
+        <div class="relative w-48 h-48 mx-auto">
+          <img src="img2/pexels-fauxels-3184611.jpg" alt="Ralph Edwards"
+            class="rounded-full w-full h-full object-cover transition transform duration-500 hover:scale-105 border-2 border-transparent hover:border-blue-700  transition duration-300 ">
+        </div>
+        <h3 class="text-xl font-bold mt-4">Ethan Smith</h3>
+        <p class="text-sm text-gray-400">Sr. Backend Developer</p>
+        <div class="flex justify-center mt-2 space-x-2">
+          <a href="#" class="text-blue-500 text-xl transform transition duration-300 hover:scale-125"><i
+              class="fab fa-linkedin"></i></a>
+          <a href="#" class="text-blue-500 text-xl transform transition duration-300 hover:scale-125"><i
+              class="fab fa-facebook"></i></a>
+          <a href="#" class="text-pink-500 text-xl transform transition duration-300 hover:scale-125"><i
+              class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+
+
+
+      <div class="mx-auto">
+        <div class="relative w-48 h-48 mx-auto">
+          <img src="img2/pexels-saksham-choudhary-109710-2036656.jpg" alt="Ralph Edwards"
+            class="rounded-full w-full h-full object-cover transition transform duration-500 hover:scale-105 border-2 border-transparent hover:border-purple-700  transition duration-300 ">
+        </div>
+        <h3 class="text-xl font-bold mt-4">James Davis</h3>
+        <p class="text-sm text-gray-400">Sr. Backend Developer</p>
+        <div class="flex justify-center mt-2 space-x-2">
+          <a href="#" class="text-blue-500 text-xl transform transition duration-300 hover:scale-125"><i
+              class="fab fa-linkedin"></i></a>
+          <a href="#" class="text-blue-500 text-xl transform transition duration-300 hover:scale-125"><i
+              class="fab fa-facebook"></i></a>
+          <a href="#" class="text-pink-500 text-xl transform transition duration-300 hover:scale-125"><i
+              class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <section class="max-w-screen-xl mx-auto p-10 text-center">
+    <h2 class="text-4xl font-bold mb-4">Latest Blog Posts</h2>
+    <p class="text-l mb-8">
+      Read, watch and absorb the secrets that we publish in our official
+      blog.
+    </p>
+
+    <!-- 1 колонка -->
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div
+        class="bg-gray-900 rounded-lg overflow-hidden bg-opacity-60 transition transform duration-500 hover:scale-105 border-2 border-transparent hover:border-blue-700   ">
+        <img src="img2/art-rachen-yJpjLD3c9bU-unsplash.jpg" alt="Blog Post 1" class="w-full h-48 object-cover" />
+        <div class="p-6">
+          <p class="text-sm text-blue-400 font-semibold">ANNOUNCEMENT</p>
+          <h3 class="text-2xl font-bold mb-2">
+            Shockwave: The Next Phase Of Secret Network's Explosive
+          </h3>
+          <p class="text-sm mb-4">
+            Learn how we aim to solidify Secret Network as a critical
+            pillar and privacy hub.
+          </p>
+          <div class="flex items-center text-gray-400 text-sm">
+            <img src="img2/pexels-alesiakozik-6781294.jpg" alt="Author 1" class="w-8 h-8 rounded-full mr-2" />
+            <div>
+              <p class="text-sm">Hub3Js</p>
+              <p>Jan 12, 2022 &middot; 8 min read</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- 2 колонка -->
+      <div
+        class="bg-gray-900 rounded-lg overflow-hidden bg-opacity-60 transition transform duration-500 hover:scale-105 border-2 border-transparent hover:border-blue-700">
+        <img src="img2/behnam-norouzi-mp11_hrQXf8-unsplash.jpg" alt="Blog Post 2" class="w-full h-48 object-cover" />
+        <div class="p-6">
+          <p class="text-sm text-blue-400 font-semibold">ANNOUNCEMENT</p>
+          <h3 class="text-2xl font-bold mb-2">
+            Shockwave: The Next Phase Of Secret Network's Explosive
+          </h3>
+          <p class="text-sm mb-4">
+            Learn how we aim to solidify Secret Network as a critical
+            pillar and privacy hub.
+          </p>
+          <div class="flex items-center text-gray-400 text-sm">
+            <img src="img2/pexels-alesiakozik-6781294.jpg" alt="Author 2" class="w-8 h-8 rounded-full mr-2" />
+            <div>
+              <p class="text-sm">Hub3Js</p>
+              <p>Jan 12, 2022 &middot; 8 min read</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- 3 колонка -->
+      <div
+        class="bg-gray-900 rounded-lg overflow-hidden bg-opacity-60 transition transform duration-500 hover:scale-105 border-2 border-transparent hover:border-blue-700">
+        <img src="img2/nick-chong-N__BnvQ_w18-unsplash.jpg" alt="Blog Post 3" class="w-full h-48 object-cover" />
+        <div class="p-6">
+          <p class="text-sm text-blue-400 font-semibold">ANNOUNCEMENT</p>
+          <h3 class="text-2xl font-bold mb-2">
+            Shockwave: The Next Phase Of Secret Network's Explosive
+          </h3>
+          <p class="text-sm mb-4">
+            Learn how we aim to solidify Secret Network as a critical
+            pillar and privacy hub.
+          </p>
+          <div class="flex items-center text-gray-400 text-sm">
+            <img src="img2/pexels-alesiakozik-6781294.jpg" alt="Author 3" class="w-8 h-8 rounded-full mr-2" />
+            <div>
+              <p class="text-sm">Hub3Js</p>
+              <p>Jan 12, 2022 &middot; 8 min read</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Вопросы  -->
+
+
+  <section class="max-w-screen-xl mx-auto p-10 text-center">
+    <h1 class="text-4xl font-bold mb-4">Have Any Question?</h1>
+    <p class="text-l mb-8">
+      Join the industry leaders to discuss where the markets are heading.
+      We accept token payments.
+    </p>
+
+    <div class="mb-6">
+      <ul class="flex justify-center border-gray-700">
+        <li class="mr-1">
+          <a class="bg-transparent inline-block py-2 px-4 text-white text-xl font-sans hover:text-blue-400 hover:underline"
+            href="#">General</a>
+        </li>
+        <li class="mr-1">
+          <a class="bg-transparent inline-block py-2 px-4 text-white text-xl font-sans hover:text-blue-400 hover:underline"
+            href="#">Pre ICO & ICO</a>
+        </li>
+        <li class="mr-1">
+          <a class="bg-transparent inline-block py-2 px-4 text-white text-xl hover:text-blue-400 hover:underline"
+            href="#">Token</a>
+        </li>
+        <li class="mr-1">
+          <a class="bg-transparent inline-block py-2 px-4 text-white text-xl hover:text-blue-400 hover:underline"
+            href="#">Client</a>
+        </li>
+        <li class="mr-1">
+          <a class="bg-transparent inline-block py-2 px-4 text-white text-xl hover:text-blue-400 hover:underline"
+            href="#">Legal</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="space-y-4 max-w-4xl mx-auto text-left">
+      <div class="faq border-2 border-blue-500 rounded-lg">
+        <button class="w-full text-left px-8 py-2 hover:bg-blue-900 rounded-lg opacity-90" onclick="toggleFAQ(1)">
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-semibold">What Cryptocurrencies Can I Use To Purchase?</span>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M5.293 9.293a1 1 0 011.414 0L10 12.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd" />
+            </svg>
+          </div>
+        </button>
+        <div id="faq1" class="faq-content hidden px-8 py-2 bg-blue-800 text-white">
+          <p>
+            Once ICO period is launched, you can purchase Token with
+            Ethereum, Bitcoin or Litecoin. You can also tempor incididunt
+            ut labore et dolore magna aliqua sed do eiusmod eaque ipsa.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq border-2 border-blue-500 rounded-lg">
+        <button class="w-full text-left px-8 py-2 hover:bg-blue-900 rounded-lg opacity-90" onclick="toggleFAQ(2)">
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-semibold">What Is ICO Crypto?</span>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M5.293 9.293a1 1 0 011.414 0L10 12.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd" />
+            </svg>
+          </div>
+        </button>
+        <div id="faq2" class="faq-content hidden px-8 py-2 bg-blue-800 text-white">
+          <p>
+            Once ICO period is launched, you can purchase Token with
+            Ethereum, Bitcoin or Litecoin. You can also tempor incididunt
+            ut labore et dolore magna aliqua sed do eiusmod eaque ipsa.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq border-2 border-blue-500 rounded-lg">
+        <button class="w-full text-left px-8 py-2 hover:bg-blue-900 rounded-lg opacity-90" onclick="toggleFAQ(3)">
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-semibold">How Can I Participate In The ICO Token Sale?</span>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M5.293 9.293a1 1 0 011.414 0L10 12.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd" />
+            </svg>
+          </div>
+        </button>
+        <div id="faq3" class="faq-content hidden px-8 py-2 bg-blue-800 text-white">
+          <p>
+            To participate in the ICO token sale, you need to register on
+            our platform and complete the KYC process.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq border-2 border-blue-500 rounded-lg">
+        <button class="w-full text-left px-8 py-2 hover:bg-blue-900 rounded-lg opacity-90" onclick="toggleFAQ(4)">
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-semibold">How Do I Benefit From The ICO Token?</span>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M5.293 9.293a1 1 0 011.414 0L10 12.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd" />
+            </svg>
+          </div>
+        </button>
+        <div id="faq4" class="faq-content hidden px-8 py-2 bg-blue-800 text-white">
+          <p>
+            ICO tokens can offer various benefits such as voting rights,
+            dividends, and access to special features on the platform.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Нижняя часть -->
+
+
+  <footer class="w-full p-10 bg-gray-900 rounded-lg bg-opacity-60 ">
+    <div class="max-w-screen-xl mx-auto flex flex-wrap justify-between">
+      <div class="w-full lg:w-1/2 mb-12 lg:mb-0">
+        <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
+        <p class="mb-4 opacity-75">
+          We are always open and we welcome and questions you have for our
+          team. If you wish to get in touch, please fill out the form
+          below. Someone from our team will get back to you shortly.
+        </p>
+        <div class="mb-4">
+          <div class="flex items-center mb-2">
+            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+            </svg>
+            <span>info.yourcompany@gmail.com</span>
+          </div>
+          <div class="flex items-center mb-2">
+            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M22 2H2v20l4-4h16V2zm-2 14H6.17L4 17.17V4h16v12z" />
+            </svg>
+            <span>+345 54689435</span>
+          </div>
+        </div>
+        <div class="flex space-x-4">
+          <a href="#" class="text-xl transform transition duration-300 hover:scale-125 hover:text-blue-400">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="text-xl transform transition duration-300 hover:scale-125 hover:text-blue-600">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="#" class="text-xl transform transition duration-300 hover:scale-125 hover:text-blue-500">
+            <i class="fab fa-telegram"></i>
+          </a>
+          <a href="#" class="text-xl transform transition duration-300 hover:scale-125 hover:text-pink-500">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="text-xl transform transition duration-300 hover:scale-125 hover:text-red-600">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="#" class="text-xl transform transition duration-300 hover:scale-125 hover:text-pink-400">
+            <i class="fab fa-tiktok"></i>
+          </a>
+          <a href="#" class="text-xl transform transition duration-300 hover:scale-125 hover:text-purple-500">
+            <i class="fab fa-discord"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Залогиниться  -->
+
+      <div class="w-full lg:w-1/2">
+        <form class=" p-6 rounded-lg">
+          <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <div class="mb-4">
+              <label for="name" class="block text-sm font-medium mb-2">Your Name</label>
+              <input type="text" id="name"
+                class="w-full p-3 bg-gray-800 text-white rounded-lg border border-gray-600 transform transition-transform hover:scale-105 duration-700"
+                placeholder="Type your name here" />
+            </div>
+            <div class="mb-4">
+              <label for="email" class="block text-sm font-medium mb-2">Your Email</label>
+              <input type="email" id="email"
+                class="w-full p-3 bg-gray-800 text-white rounded-lg border border-gray-600 transform transition-transform hover:scale-105 duration-700"
+                placeholder="Type your email here" />
+            </div>
+          </div>
+          <div class="mb-4">
+            <label for="message" class="block text-sm font-medium mb-2">Your Message</label>
+            <textarea id="message" rows="4"
+              class="w-full p-3 bg-gray-800 text-white rounded-lg border border-gray-600 transform transition-transform hover:scale-105 duration-700"
+              placeholder="Leave your question or comment here"></textarea>
+          </div>
+          <button type="submit"
+            class="w-2/4 p-2 btn-3d bg-gradient-to-br from-green-500 from-20% via-blue-400 via-30% to-purple-900 text-white font-sans text-l rounded-xl px-2 py-2 hover:scale-105 transform transition-transform duration-700">
+            SUBMIT YOUR MESSAGE
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="max-w-screen-xl mx-auto text-left mt-8 mb-4">
+      <p>© 2022. All rights reserved by Avitex</p>
+    </div>
+
+
+
+  </footer>
+  <script>
+    function toggleFAQ(id) {
+      const faq = document.getElementById("faq" + id);
+      faq.classList.toggle("hidden");
+    }
+
+    function toggleMenu() {
+      const menu = document.getElementById("mobile-menu");
+      menu.classList.toggle("hidden");
+    }
+
+  </script>
+</body>
+
+</html>
+</body>
+
+</html>
+
+
+
+
+
+<!-- 1. Создаю наконец то портофолио сайт 
+2. Какие работы скинуть туда ? + github 
+3. Начинаю подготовку к собеседованию \ теория , вопросы , задачки 
+4. Во второй половине августа начинаю кидать свое Cv просто везде ( если Толя меня не заберет к себе ,потому что других вариков нету ) 
+5. Js \ React плотно изучить 
+5.2 На этой недели нарисую себе сайт ( попробую )figma и т.д 
+6. День - утро теория ( воторение ), 2-часть практика сайт , игрули , 3-часть теория , новое 
+7.У меня есть шансы или ИИ заменит всех молодых? 
+
+
+1. Вопросы для Анатолия 
+- Как делать правильно верстку под мобильные устройства? 
+-настройки через config \tailwind 
+-подключить например burger-menu , настроить для tailwind 
+-2 фона на одном сайте , отредактировать правильно 
+-возможно ли оживить картинку через Js 
+-у меня часто не получается)))))) 
+-примеры правильного расположения navbar и других , современно \( размеры,расстояние ,  )
+-план на дальнейшее действие , что я делаю не так или так )  -->
